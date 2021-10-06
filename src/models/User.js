@@ -12,6 +12,14 @@ class User extends Model {
       }
     );
   }
+
+  static associate(models) {
+    this.belongsToMany(models.Regional, {
+      foreignKey: "user_id",
+      through: "user_regional",
+      as: "regional",
+    });
+  }
 }
 
 module.exports = User;
