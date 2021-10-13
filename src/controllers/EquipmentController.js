@@ -5,12 +5,14 @@ const Regional = require("../models/Regional");
 module.exports = {
   async index(req, res) {
     const { regional_id } = req.params;
+    const { contract_id } = req.params;
 
-    const regional = await Regional.findByPk(regional_id, {
-      include: { association: "equipments" },
+    const equipment = await Equipment.findAll({
+      where: { regional_id, contract_id },
     });
 
-    return res.json(regional);
+    console.log(equipment);
+    return res.json(equipment);
   },
 
   async store(req, res) {
@@ -29,6 +31,8 @@ module.exports = {
       type,
       number_lanes,
       way,
+      latitude,
+      longitude,
     } = req.body;
 
     const regional = await Regional.findByPk(regional_id);
@@ -52,6 +56,8 @@ module.exports = {
       type,
       number_lanes,
       way,
+      latitude,
+      longitude,
       regional_id,
       contract_id,
     });

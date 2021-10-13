@@ -15,6 +15,8 @@ class Equipment extends Model {
         type: DataTypes.STRING,
         number_lanes: DataTypes.INTEGER,
         way: DataTypes.STRING,
+        latitude: DataTypes.STRING,
+        longitude: DataTypes.STRING,
       },
       {
         sequelize: connection,

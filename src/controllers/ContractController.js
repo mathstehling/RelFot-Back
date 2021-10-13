@@ -9,7 +9,7 @@ module.exports = {
       include: { association: "contract" },
     });
 
-    console.log(regional);
+    /* console.log(regional.contract); */
     return res.json(regional.contract);
   },
 
