@@ -4,6 +4,7 @@ const UserController = require("./controllers/UserController");
 const RegionalController = require("./controllers/RegionalController");
 const EquipmentController = require("./controllers/EquipmentController");
 const ContractController = require("./controllers/ContractController");
+const PhotoController = require("./controllers/PhotoController");
 
 const routes = express.Router();
 
@@ -30,5 +31,8 @@ routes.post(
   "/regional/:regional_id/:contract_id/equipments",
   EquipmentController.store
 );
+
+routes.get("/regional/:equipment_id/photos", PhotoController.index);
+routes.post("/regional/:equipment_id/photos", PhotoController.store);
 
 module.exports = routes;

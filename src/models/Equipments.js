@@ -34,6 +34,10 @@ class Equipment extends Model {
       foreignKey: "contract_id",
       as: "contract",
     });
+    this.hasMany(models.Photo, {
+      foreignKey: "equipment_id",
+      as: "photos",
+    });
   }
 }
 
